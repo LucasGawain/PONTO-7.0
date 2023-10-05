@@ -4,9 +4,17 @@
     $conn = mysqli_connect("localhost:3306","root","","ponto");
 
     // Função para listar todos os funcionários
-    function listarFuncionarios($conn) {
-        $sql = "SELECT * FROM pt_funcionarios";
-        $result = $conn->query($sql);
+    function listarFuncionarios($conn, $nomeConsulta) {
+        $sql = "SELECT * FROM pt_funcionarios WHERE LOWER(func_nome) LIKE ?";
+        $stmt = $conn->prepare($sql);
+        //$result = $conn->query($sql);
+
+        // Adicione '%' para corresponder a qualquer coisa antes ou depois do nome
+        $nomeConsulta = '%' . strtolower($nomeConsulta) . '%';
+        $stmt->bind_param("s", $nomeConsulta);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             echo "<h2>Lista de Funcionários</h2>";
@@ -27,5 +35,8 @@
     }
 
     // Exibir a lista de funcionários
-    listarFuncionarios($conn);
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['consulta'])) {
+        $nomeConsulta = $_GET['consulta'];
+        listarFuncionarios($conn, $nomeConsulta);
+    }
     ?>
