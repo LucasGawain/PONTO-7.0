@@ -21,14 +21,14 @@
     </form>
 
     <h2>Consultar Funcionário</h2>
-    <form method="GET" action="consultar.php">
+    <form method="GET" action="queryfunc.php">
         <label for="consulta">Consultar por Nome:</label>
         <input type="text" name="consulta" required><br><br>
         <input type="submit" value="Consultar">
     </form>
 
     <h2>Atualizar Funcionário</h2>
-    <form method="POST" action="atualizar.php">
+    <form method="POST" action="editfunc.php">
         <label for="func_id">ID do Funcionário:</label>
         <input type="number" name="func_id" required><br><br>
 

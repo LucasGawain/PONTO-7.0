@@ -1,6 +1,6 @@
 <?php
     // Inclua o arquivo de configuração do banco de dados
-    require_once('form.php');
+    // require_once('form.php');
     $conn = mysqli_connect("localhost:3306","root","","ponto");
 
     // Função para listar todos os funcionários
@@ -17,7 +17,7 @@
                 echo "<td>" . $row['func_id'] . "</td>";
                 echo "<td>" . $row['func_nome'] . "</td>";
                 echo "<td>" . $row['func_cargo'] . "</td>";
-                echo "<td><a href='editar.php?id=" . $row['func_id'] . "'>Editar</a> | <a href='excluir.php?id=" . $row['func_id'] . "'>Excluir</a></td>";
+                echo "<td><a href='editfunc.php'?id=" . $row['func_id'] . "'>Editar</a> | <a href='excluir.php?id=" . $row['func_id'] . "'>Excluir</a></td>";
                 echo "</tr>";
             }
             echo "</table>";
