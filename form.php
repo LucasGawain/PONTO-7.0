@@ -7,7 +7,7 @@
     <h1>Gerenciamento de Funcionários</h1>
 
     <h2>Adicionar Novo Funcionário</h2>
-    <form method="POST" action="inserir.php">
+    <form method="POST" action="addfunc.php">
         <label for="func_id">ID do Funcionário:</label>
         <input type="number" name="func_id" required><br><br>
 
@@ -42,10 +42,9 @@
     </form>
 
     <h2>Excluir Funcionário</h2>
-    <form method="POST" action="excluir.php">
+    <form method="POST" action="exclfunc.php">
         <label for="func_id">ID do Funcionário a ser Excluído:</label>
         <input type="number" name="func_id" required><br><br>
-
         <input type="submit" value="Excluir">
     </form>
 </body>
